@@ -19,14 +19,18 @@ function App() {
         setTextPosition={setTextPosition}
         textPosition={textPosition}
       />
+      <button className="bg-blue-500 text-white text-xl rounded w-20 hover:bg-blue-600">
+        Save!
+      </button>
       <Preview
         imageSrc={imageSrc}
         imageText={imageText}
         textPosition={textPosition}
       />
-      <button>Save!</button>
     </div>
   );
 }
-
+// window.onload = function () {
+//   console.log('hello world')
+// }
 export default App;

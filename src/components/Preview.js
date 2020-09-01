@@ -16,7 +16,10 @@ function Preview(props) {
           <img className="w-full" src={imageSrc}></img>
         )}
 
-        <pre className="absolute text-white text-2xl" style={{ left: x, top: y }}>
+        <pre
+          className="absolute text-white text-4xl"
+          style={{ left: x, top: y }}
+        >
           {imageText}
         </pre>
       </div>
