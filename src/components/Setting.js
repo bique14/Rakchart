@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 function Setting(props) {
-  const { setImageSrc, setImageText } = props;
+  const { setImageSrc, setImageText, setTextPosition, textPosition } = props;
 
   return (
     <div className="flex flex-col">
@@ -18,11 +18,37 @@ function Setting(props) {
         }}
       />
       <textarea
-        className="border-2"
+        className="border-2 h-20"
         onChange={(event) => {
           setImageText(event.target.value);
         }}
       ></textarea>
+      <div className="flex flex-col">
+        <div className="flex flex-row">
+          <span>x:</span>
+          <input
+            className="border rounded"
+            type="number"
+            onChange={(event) => {
+              setTextPosition({ x: +event.target.value, y: textPosition.y });
+            }}
+          ></input>
+        </div>
+        <div className="flex flex-row">
+          <span>y:</span>
+          <input
+            className="border rounded"
+            type="number"
+            onChange={(event) => {
+              setTextPosition({ y: +event.target.value, x: textPosition.x });
+            }}
+          ></input>
+        </div>
+        <div className="flex flex-row">
+          <span>color:</span>
+          <span>not implemented</span>
+        </div>
+      </div>
     </div>
   );
 }
