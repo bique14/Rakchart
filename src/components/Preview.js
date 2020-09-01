@@ -9,7 +9,7 @@ function Preview(props) {
   return (
     <div className="mt-4">
       <span className="block">Preview</span>
-      <div style={{ width: "675px" }} className="border rounded relative">
+      <div id="image-preview" style={{ width: "675px" }} className="border rounded relative">
         {imageSrc.length == 0 || Object.keys(imageSrc).length === 0 ? (
           "Not select an image"
         ) : (
