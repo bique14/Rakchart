@@ -1,11 +1,17 @@
-import React from 'react';
-import './styles/main.css'
+import React from "react";
+import Setting from "./components/Setting";
+import Preview from "./components/Preview";
+import { useState } from "react";
+import "./styles/main.css";
 
 function App() {
+  const [imageSrc, setImageSrc] = useState({});
+  const [imageText, setImageText] = useState("");
+  // console.log(`image text ${JSON.stringify(imageText)}`)
   return (
-    <div className="bg-black flex justify-center items-center min-h-screen text-white">
-      Hello World
-      <h1 className="bg-red-600 text-yellow-500 font-bold text-2xl">BIG</h1>
+    <div className="flex flex-col min-h-screen">
+      <Setting setImageSrc={setImageSrc} setImageText={setImageText} />
+      <Preview imageSrc={imageSrc} />
     </div>
   );
 }
