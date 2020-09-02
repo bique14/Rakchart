@@ -1,7 +1,7 @@
 import React from "react";
 
 function Preview(props) {
-  const { imageSrc, imageText, textPosition } = props;
+  const { imageSrc, imageText, textPosition, textConfig } = props;
   const { x, y } = textPosition;
 
   return (
@@ -9,9 +9,9 @@ function Preview(props) {
       <span className="block">Preview</span>
       <div className="block">
         <div
-          id="image-preview"
+          id="image-preview-container"
           style={{ width: "500px" }}
-          className="border rounded relative"
+          className="rounded relative"
         >
           {imageSrc.length === 0 || Object.keys(imageSrc).length === 0 ? (
             "Not select an image"
@@ -20,18 +20,26 @@ function Preview(props) {
               className="w-full"
               src={imageSrc}
               alt="preview"
+              id="image-preview"
               style={{ width: "500px" }}
             ></img>
           )}
 
           <pre
-            className="absolute text-white text-4xl font-rakchart leading-8"
-            style={{ left: x, top: y }}
+            className="absolute text-white font-rakchart leading-8"
+            style={{
+              left: x,
+              top: y,
+              lineHeight: `${textConfig.gap}rem`,
+              fontSize: `${textConfig.size}rem`,
+              transform: `rotate(${textConfig.rotate}deg)`,
+              textShadow: '2px 2px 10px black'
+            }}
           >
             {imageText}
           </pre>
         </div>
-        <span className="mx-6 self-center">{">>"}</span>
+        <span className="mx-6 self-center">{"V"}</span>
         <div>
           <img
             className=""
