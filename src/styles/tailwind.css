@@ -22,3 +22,8 @@ html {
 #root {
   @apply h-full;
 }
+
+input:focus,
+textarea:focus {
+  outline: 0;
+}

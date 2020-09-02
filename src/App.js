@@ -31,8 +31,8 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <a href={pathToDownload} download="rakchart.png">
-        Download
+      <a className="rounded p-1 text-center bg-green-400" href={pathToDownload} download="rakchart.png">
+        Download!
       </a>
 
       <Setting
@@ -52,7 +52,6 @@ function App() {
         imageText={imageText}
         textPosition={textPosition}
       />
-      <img className="w-40" id="screenshot" alt="screenshot"></img>
     </div>
   );
 }

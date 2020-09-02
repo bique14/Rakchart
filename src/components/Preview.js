@@ -7,23 +7,39 @@ function Preview(props) {
   return (
     <div className="mt-4">
       <span className="block">Preview</span>
-      <div
-        id="image-preview"
-        style={{ width: "675px" }}
-        className="border rounded relative"
-      >
-        {imageSrc.length === 0 || Object.keys(imageSrc).length === 0 ? (
-          "Not select an image"
-        ) : (
-          <img className="w-full" src={imageSrc} alt="preview"></img>
-        )}
-
-        <pre
-          className="absolute text-white text-4xl font-rakchart leading-8"
-          style={{ left: x, top: y }}
+      <div className="block">
+        <div
+          id="image-preview"
+          style={{ width: "500px" }}
+          className="border rounded relative"
         >
-          {imageText}
-        </pre>
+          {imageSrc.length === 0 || Object.keys(imageSrc).length === 0 ? (
+            "Not select an image"
+          ) : (
+            <img
+              className="w-full"
+              src={imageSrc}
+              alt="preview"
+              style={{ width: "500px" }}
+            ></img>
+          )}
+
+          <pre
+            className="absolute text-white text-4xl font-rakchart leading-8"
+            style={{ left: x, top: y }}
+          >
+            {imageText}
+          </pre>
+        </div>
+        <span className="mx-6 self-center">{">>"}</span>
+        <div>
+          <img
+            className=""
+            id="screenshot"
+            alt="example"
+            style={{ width: "500px" }}
+          ></img>
+        </div>
       </div>
     </div>
   );

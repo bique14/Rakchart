@@ -44,7 +44,7 @@ function Setting(props) {
           ></input>
         </div>
         <div className="flex flex-row">
-          <span>color, rotate, font-size:</span>
+          <span>color, rotate, font-size, leading:</span>
           <span>not implemented</span>
         </div>
       </div>
