@@ -67,7 +67,7 @@ function TextPosition(props) {
 
   return (
     <div className="flex flex-row">
-      <span class="mr-2">Position</span>
+      <span className="mr-2">Position</span>
       <div className="flex flex-row mr-2">
         <span className="mr-1">x:</span>
         <input

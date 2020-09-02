@@ -49,7 +49,7 @@ function App() {
         className="mt-4 bg-blue-500 text-white rounded w-full py-2 hover:bg-blue-600 hover:shadow"
         onClick={save}
       >
-        <a className="block w-full" href="#screenshot">
+        <a className="block w-full" href="/#screenshot">
           Render image
         </a>
       </button>
@@ -70,10 +70,6 @@ function App() {
           Download Image
         </a>
       )}
-      <div className="mt-4 text-blue-600">
-        <span>Bug report : </span>
-        <a target="_blank">click here</a>
-      </div>
     </div>
   );
 }
