@@ -23,30 +23,43 @@ function Setting(props) {
         }}
       ></textarea>
       <div className="flex flex-col">
-        <div className="flex flex-row">
-          <span>x:</span>
-          <input
-            className="border rounded"
-            type="number"
-            onChange={(event) => {
-              setTextPosition({ x: +event.target.value, y: textPosition.y });
-            }}
-          ></input>
-        </div>
-        <div className="flex flex-row">
-          <span>y:</span>
-          <input
-            className="border rounded"
-            type="number"
-            onChange={(event) => {
-              setTextPosition({ y: +event.target.value, x: textPosition.x });
-            }}
-          ></input>
-        </div>
+        <TextPosition
+          setTextPosition={setTextPosition}
+          textPosition={textPosition}
+        />
         <div className="flex flex-row">
           <span>color, rotate, font-size, leading:</span>
           <span>not implemented</span>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function TextPosition(props) {
+  const { setTextPosition, textPosition } = props;
+  return (
+    <div className="flex flex-col">
+      <span>Position</span>
+      <div className="flex flex-row">
+        <span>x:</span>
+        <input
+          className="border rounded"
+          type="number"
+          onChange={(event) => {
+            setTextPosition({ x: +event.target.value, y: textPosition.y });
+          }}
+        ></input>
+      </div>
+      <div className="flex flex-row">
+        <span>y:</span>
+        <input
+          className="border rounded"
+          type="number"
+          onChange={(event) => {
+            setTextPosition({ y: +event.target.value, x: textPosition.x });
+          }}
+        ></input>
       </div>
     </div>
   );
