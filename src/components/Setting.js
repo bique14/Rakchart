@@ -24,9 +24,12 @@ function Setting(props) {
   // console.log(width, height);
 
   return (
-    <div className="flex flex-col">
-      <span className="block">setting</span>
+    <div className="flex flex-col bg-gray-300 rounded px-4 py-2">
+      <h1 className="font-bold text-xl border-b border-gray-600 mb-1 pt-1 pb-2">
+        Setting
+      </h1>
       <input
+        className="my-2"
         type="file"
         onChange={(event) => {
           setImageSrc(
@@ -38,11 +41,14 @@ function Setting(props) {
       />
       <textarea
         className="border-2 h-20"
+        style={{ resize: "none" }}
+        placeholder="Type text here.."
         onChange={(event) => {
           setImageText(event.target.value);
         }}
       ></textarea>
-      <div className="flex flex-col">
+      <div className="flex flex-col rounded bg-gray-500 my-2">
+        <span>Text config</span>
         <TextPosition
           setTextPosition={setTextPosition}
           textPosition={textPosition}
@@ -51,7 +57,7 @@ function Setting(props) {
         <TextSize textConfig={textConfig} setTextConfig={setTextConfig} />
         <TextRotate textConfig={textConfig} setTextConfig={setTextConfig} />
         <div className="flex flex-row">
-          <span>color:</span>
+          <span>color, text-align:</span>
           <span>not implemented</span>
         </div>
       </div>
@@ -61,27 +67,29 @@ function Setting(props) {
 
 function TextPosition(props) {
   const { setTextPosition, textPosition } = props;
+
   return (
     <div className="flex flex-col">
-      <span>Position</span>
       <div className="flex flex-row">
-        <span>x:</span>
+        <span>position x:</span>
         <input
           className="border rounded"
           type="number"
           min={0}
           max={500}
+          value={textPosition.x}
           onChange={(event) => {
             setTextPosition({ x: +event.target.value, y: textPosition.y });
           }}
         ></input>
       </div>
       <div className="flex flex-row">
-        <span>y:</span>
+        <span>position y:</span>
         <input
           className="border rounded"
           type="number"
           min={0}
+          value={textPosition.y}
           onChange={(event) => {
             setTextPosition({ y: +event.target.value, x: textPosition.x });
           }}

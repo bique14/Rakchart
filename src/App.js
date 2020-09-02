@@ -34,7 +34,7 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen m-4">
       <Setting
         setImageSrc={setImageSrc}
         setImageText={setImageText}
@@ -44,10 +44,10 @@ function App() {
         setTextConfig={setTextConfig}
       />
       <button
-        className="bg-blue-500 text-white text-xl rounded w-20 hover:bg-blue-600"
+        className="bg-blue-500 text-white rounded w-full py-2 hover:bg-blue-600 hover:shadow"
         onClick={save}
       >
-        Render!
+        Render image
       </button>
       <Preview
         imageSrc={imageSrc}
@@ -56,15 +56,15 @@ function App() {
         textConfig={textConfig}
       />
       <a
-        className="rounded p-1 text-center bg-green-400"
+        className="rounded p-1 text-center text-white text-xl bg-green-400 py-2 font-bold hover:bg-green-500 hover:shadow"
         href={pathToDownload}
         download="rakchart.png"
       >
-        Download!
+        Download Image
       </a>
-      <div>
+      <div className="text-blue-600">
         <span>Bug report : </span>
-        <a href="https://github.com/bique14/Rakchart/issues/new">click here</a>
+        <a href="https://github.com/bique14/Rakchart/issues/new" target="_blank">click here</a>
       </div>
     </div>
   );
