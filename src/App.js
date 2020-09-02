@@ -52,7 +52,7 @@ function App() {
         imageText={imageText}
         textPosition={textPosition}
       />
-      <img className="w-40" id="screenshot"></img>
+      <img className="w-40" id="screenshot" alt="screenshot"></img>
     </div>
   );
 }

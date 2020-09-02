@@ -10071,6 +10071,10 @@ video {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.font-rakchart {
+  font-family: worasait;
+}
+
 .font-hairline {
   font-weight: 100;
 }
@@ -18643,6 +18647,16 @@ video {
   animation: bounce 1s infinite;
 }
 
+@font-face {
+  font-family: "worasait";
+
+  src: local("worasait"), url(./worasait.ttf) format("truetype");
+
+  /* src: url(./worasait.ttf) format("truetype"); */
+
+  color: red;
+}
+
 body {
   height: 100%;
 }
@@ -18654,6 +18668,14 @@ html {
 #root {
   height: 100%;
 }
+
+/* 
+@font-face {
+  font-family: "rakchart";
+  src: url("./worasait.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+} */
 
 @media (min-width: 640px) {
   .sm\:container {
@@ -28148,6 +28170,10 @@ html {
 
   .sm\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .sm\:font-rakchart {
+    font-family: worasait;
   }
 
   .sm\:font-hairline {
@@ -46187,6 +46213,10 @@ html {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .md\:font-rakchart {
+    font-family: worasait;
+  }
+
   .md\:font-hairline {
     font-weight: 100;
   }
@@ -64224,6 +64254,10 @@ html {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .lg\:font-rakchart {
+    font-family: worasait;
+  }
+
   .lg\:font-hairline {
     font-weight: 100;
   }
@@ -82259,6 +82293,10 @@ html {
 
   .xl\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .xl\:font-rakchart {
+    font-family: worasait;
   }
 
   .xl\:font-hairline {

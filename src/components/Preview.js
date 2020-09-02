@@ -1,7 +1,5 @@
 import React from "react";
 
-import { useState } from "react";
-
 function Preview(props) {
   const { imageSrc, imageText, textPosition } = props;
   const { x, y } = textPosition;
@@ -9,15 +7,19 @@ function Preview(props) {
   return (
     <div className="mt-4">
       <span className="block">Preview</span>
-      <div id="image-preview" style={{ width: "675px" }} className="border rounded relative">
-        {imageSrc.length == 0 || Object.keys(imageSrc).length === 0 ? (
+      <div
+        id="image-preview"
+        style={{ width: "675px" }}
+        className="border rounded relative"
+      >
+        {imageSrc.length === 0 || Object.keys(imageSrc).length === 0 ? (
           "Not select an image"
         ) : (
-          <img className="w-full" src={imageSrc}></img>
+          <img className="w-full" src={imageSrc} alt="preview"></img>
         )}
 
         <pre
-          className="absolute text-white text-4xl"
+          className="absolute text-white text-4xl font-rakchart leading-8"
           style={{ left: x, top: y }}
         >
           {imageText}

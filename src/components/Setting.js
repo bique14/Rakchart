@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 
 function Setting(props) {
   const { setImageSrc, setImageText, setTextPosition, textPosition } = props;
@@ -11,7 +10,7 @@ function Setting(props) {
         type="file"
         onChange={(event) => {
           setImageSrc(
-            event.target.files[0] == undefined
+            event.target.files[0] === undefined
               ? {}
               : URL.createObjectURL(event.target.files[0])
           );

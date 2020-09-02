@@ -4,6 +4,13 @@
 
 @tailwind utilities;
 
+@font-face {
+  font-family: "worasait";
+  src: local("worasait"), url(./worasait.ttf) format("truetype");
+  /* src: url(./worasait.ttf) format("truetype"); */
+  color: red;
+}
+
 body {
   @apply h-full;
 }
