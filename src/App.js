@@ -72,17 +72,10 @@ function App() {
       )}
       <div className="mt-4 text-blue-600">
         <span>Bug report : </span>
-        <a
-          // href="https://github.com/bique14/Rakchart/issues/new"
-          target="_blank"
-        >
-          click here
-        </a>
+        <a target="_blank">click here</a>
       </div>
     </div>
   );
 }
-// window.onload = function () {
-//   console.log('hello world')
-// }
+
 export default App;
