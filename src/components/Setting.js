@@ -47,8 +47,8 @@ function Setting(props) {
           setImageText(event.target.value);
         }}
       ></textarea>
-      <div className="flex flex-col rounded bg-gray-500 my-2">
-        <span>Text config</span>
+      <div className="flex flex-col rounded bg-gray-500 my-2 px-4 py-2">
+        <span className="font-bold">Text config</span>
         <TextPosition
           setTextPosition={setTextPosition}
           textPosition={textPosition}
@@ -56,10 +56,7 @@ function Setting(props) {
         <TextGap textConfig={textConfig} setTextConfig={setTextConfig} />
         <TextSize textConfig={textConfig} setTextConfig={setTextConfig} />
         <TextRotate textConfig={textConfig} setTextConfig={setTextConfig} />
-        <div className="flex flex-row">
-          <span>color, text-align:</span>
-          <span>not implemented</span>
-        </div>
+        <TextAlign textConfig={textConfig} setTextConfig={setTextConfig} />
       </div>
     </div>
   );
@@ -69,11 +66,12 @@ function TextPosition(props) {
   const { setTextPosition, textPosition } = props;
 
   return (
-    <div className="flex flex-col">
-      <div className="flex flex-row">
-        <span>position x:</span>
+    <div className="flex flex-row">
+      <span class="mr-2">Position</span>
+      <div className="flex flex-row mr-2">
+        <span className="mr-1">x:</span>
         <input
-          className="border rounded"
+          className="border rounded w-16"
           type="number"
           min={0}
           max={500}
@@ -84,9 +82,9 @@ function TextPosition(props) {
         ></input>
       </div>
       <div className="flex flex-row">
-        <span>position y:</span>
+        <span className="mr-1">y:</span>
         <input
-          className="border rounded"
+          className="border rounded w-16"
           type="number"
           min={0}
           value={textPosition.y}
@@ -103,9 +101,9 @@ function TextGap(props) {
   const { textConfig, setTextConfig } = props;
   return (
     <div className="flex flex-row">
-      <span>gap sapce:</span>
+      <span>White space between words:</span>
       <input
-        className="border rounded"
+        className="border rounded w-16"
         type="number"
         value={textConfig.gap}
         onChange={(event) => {
@@ -114,6 +112,7 @@ function TextGap(props) {
             color: textConfig.size,
             rotate: textConfig.rotate,
             size: textConfig.size,
+            align: textConfig.align,
           });
         }}
       ></input>
@@ -125,9 +124,9 @@ function TextSize(props) {
   const { textConfig, setTextConfig } = props;
   return (
     <div className="flex flex-row">
-      <span>font size:</span>
+      <span>Font size:</span>
       <input
-        className="border rounded"
+        className="border rounded w-16"
         type="number"
         min={2}
         value={textConfig.size}
@@ -137,6 +136,7 @@ function TextSize(props) {
             gap: textConfig.gap,
             color: textConfig.size,
             rotate: textConfig.rotate,
+            align: textConfig.align,
           });
         }}
       ></input>
@@ -150,7 +150,7 @@ function TextRotate(props) {
     <div className="flex flex-row">
       <span>Rotate:</span>
       <input
-        className="border rounded"
+        className="border rounded w-16"
         type="number"
         value={textConfig.rotate}
         onChange={(event) => {
@@ -159,9 +159,83 @@ function TextRotate(props) {
             gap: textConfig.gap,
             color: textConfig.size,
             size: textConfig.size,
+            align: textConfig.align,
           });
         }}
       ></input>
+    </div>
+  );
+}
+
+function TextAlign(props) {
+  const { textConfig, setTextConfig } = props;
+  return (
+    <div className="flex flex-row">
+      <span>Align:</span>
+
+      <label className="ml-4">
+        <input
+          className="mr-1"
+          type="radio"
+          id="left"
+          name="align-radio"
+          value="left"
+          checked={textConfig.align === "left" ? true : false}
+          onChange={(e) => {}}
+          onClick={(event) => {
+            setTextConfig({
+              align: event.target.value,
+              rotate: textConfig.rotate,
+              gap: textConfig.gap,
+              color: textConfig.size,
+              size: textConfig.size,
+            });
+          }}
+        />
+        Left
+      </label>
+      <label className="ml-4">
+        <input
+          className="mr-1"
+          type="radio"
+          id="center"
+          name="align-radio"
+          value="center"
+          checked={textConfig.align === "center" ? true : false}
+          onChange={(e) => {}}
+          onClick={(event) => {
+            setTextConfig({
+              align: event.target.value,
+              rotate: textConfig.rotate,
+              gap: textConfig.gap,
+              color: textConfig.size,
+              size: textConfig.size,
+            });
+          }}
+        />
+        Center
+      </label>
+      <label className="ml-4">
+        <input
+          className="mr-1"
+          type="radio"
+          id="right"
+          name="align-radio"
+          value="right"
+          checked={textConfig.align === "right" ? true : false}
+          onChange={(e) => {}}
+          onClick={(event) => {
+            setTextConfig({
+              align: event.target.value,
+              rotate: textConfig.rotate,
+              gap: textConfig.gap,
+              color: textConfig.size,
+              size: textConfig.size,
+            });
+          }}
+        />
+        Right
+      </label>
     </div>
   );
 }

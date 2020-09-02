@@ -15,6 +15,7 @@ function App() {
     gap: 2,
     rotate: 0,
     size: 2,
+    align: "left",
   });
 
   function save() {
@@ -25,7 +26,8 @@ function App() {
       profile: true,
       useCORS: true,
     }).then(function (canvas) {
-      const data = canvas.toDataURL("image/jpeg", 0.9);
+      document.getElementById("screenshot").src = null;
+      const data = canvas.toDataURL("image/jpeg", 1.0);
       const src = encodeURI(data);
       document.getElementById("screenshot").src = src;
       setPathToDownload(src);
@@ -44,10 +46,12 @@ function App() {
         setTextConfig={setTextConfig}
       />
       <button
-        className="bg-blue-500 text-white rounded w-full py-2 hover:bg-blue-600 hover:shadow"
+        className="mt-4 bg-blue-500 text-white rounded w-full py-2 hover:bg-blue-600 hover:shadow"
         onClick={save}
       >
-        Render image
+        <a className="block w-full" href="#screenshot">
+          Render image
+        </a>
       </button>
       <Preview
         imageSrc={imageSrc}
@@ -55,16 +59,25 @@ function App() {
         textPosition={textPosition}
         textConfig={textConfig}
       />
-      <a
-        className="rounded p-1 text-center text-white text-xl bg-green-400 py-2 font-bold hover:bg-green-500 hover:shadow"
-        href={pathToDownload}
-        download="rakchart.png"
-      >
-        Download Image
-      </a>
-      <div className="text-blue-600">
+      {document.getElementById("screenshot") === null ? (
+        <div className="hidden"></div>
+      ) : (
+        <a
+          className="my-4 rounded p-1 text-center text-white text-xl bg-green-400 py-2 font-bold hover:bg-green-500 hover:shadow"
+          href={pathToDownload}
+          download="rakchart.png"
+        >
+          Download Image
+        </a>
+      )}
+      <div className="mt-4 text-blue-600">
         <span>Bug report : </span>
-        <a href="https://github.com/bique14/Rakchart/issues/new" target="_blank">click here</a>
+        <a
+          // href="https://github.com/bique14/Rakchart/issues/new"
+          target="_blank"
+        >
+          click here
+        </a>
       </div>
     </div>
   );

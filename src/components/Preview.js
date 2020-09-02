@@ -6,7 +6,7 @@ function Preview(props) {
 
   return (
     <div className="mt-4">
-      <span className="block">Preview</span>
+      <span className="block font-bold text-xl">Preview</span>
       <div className="block">
         <div
           id="image-preview-container"
@@ -33,7 +33,8 @@ function Preview(props) {
               lineHeight: `${textConfig.gap}rem`,
               fontSize: `${textConfig.size}rem`,
               transform: `rotate(${textConfig.rotate}deg)`,
-              textShadow: '2px 2px 10px black'
+              textShadow: "2px 2px 10px black",
+              textAlign: textConfig.align,
             }}
           >
             {imageText}
@@ -54,8 +55,3 @@ function Preview(props) {
 }
 
 export default Preview;
-
-// const [position, setPosition] = useState({});
-// onClick={(e) => {
-//   setPosition({ x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY });
-// }}
