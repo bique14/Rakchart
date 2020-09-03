@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
 function Setting(props) {
   const {
@@ -10,18 +11,17 @@ function Setting(props) {
     setTextConfig,
   } = props;
 
-  // function getImageSize() {
-  //   var img = document.getElementById("preview-image");
-  //   //or however you get a handle to the IMG
-  //   var width = img.height;
-  //   var height = img.width;
-  //   console.log(width, height)
-  // }
-  // getImageSize()
+  const [imgWidth, setImageWidth] = useState(0);
+  const [imgHeight, setImageHeight] = useState(0);
 
-  // var width = img.height;
-  // var height = img.width;
-  // console.log(width, height);
+  useEffect(() => {
+    const img =
+      document.getElementById("image-preview") === null
+        ? 0
+        : document.getElementById("image-preview");
+    setImageWidth(img.width);
+    setImageHeight(img.height);
+  });
 
   return (
     <div className="flex flex-col bg-gray-300 rounded px-4 py-2">
@@ -52,6 +52,7 @@ function Setting(props) {
         <TextPosition
           setTextPosition={setTextPosition}
           textPosition={textPosition}
+          imgHeight={imgHeight}
         />
         <TextGap textConfig={textConfig} setTextConfig={setTextConfig} />
         <TextSize textConfig={textConfig} setTextConfig={setTextConfig} />
@@ -63,7 +64,7 @@ function Setting(props) {
 }
 
 function TextPosition(props) {
-  const { setTextPosition, textPosition } = props;
+  const { setTextPosition, textPosition, imgHeight } = props;
 
   return (
     <div className="flex flex-row">
@@ -87,6 +88,7 @@ function TextPosition(props) {
           className="border rounded w-16"
           type="number"
           min={0}
+          max={imgHeight}
           value={textPosition.y}
           onChange={(event) => {
             setTextPosition({ y: +event.target.value, x: textPosition.x });
