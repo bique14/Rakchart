@@ -11,7 +11,7 @@ function Setting(props) {
     setTextConfig,
   } = props;
 
-  const [imgWidth, setImageWidth] = useState(0);
+  // const [imgWidth, setImageWidth] = useState(0);
   const [imgHeight, setImageHeight] = useState(0);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function Setting(props) {
       document.getElementById("image-preview") === null
         ? 0
         : document.getElementById("image-preview");
-    setImageWidth(img.width);
+    // setImageWidth(img.width);
     setImageHeight(img.height);
   });
 
