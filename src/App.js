@@ -41,6 +41,8 @@ function App() {
       // forceDownload.href = src
       // forceDownload.setAttribute("download", "rakchart.png");
       // forceDownload.click();
+      // window.URL.revokeObjectURL(forceDownload.href);
+      // document.body.removeChild(forceDownload);
     });
   }
 
