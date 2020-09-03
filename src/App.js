@@ -68,7 +68,8 @@ function App() {
         textPosition={textPosition}
         textConfig={textConfig}
       />
-      {document.getElementById("screenshot") === null ? (
+      {document.getElementById("screenshot") === null ||
+      document.getElementById("screenshot").src.length === 0 ? (
         <div className="hidden"></div>
       ) : (
         <a
