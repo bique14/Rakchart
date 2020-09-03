@@ -25,6 +25,8 @@ function App() {
       logging: true,
       profile: true,
       useCORS: true,
+      scrollX: 0,
+      scrollY: -window.scrollY,
     }).then(function (canvas) {
       document.getElementById("screenshot").src = null;
       const data = canvas.toDataURL("image/jpeg", 1.0);
@@ -32,6 +34,13 @@ function App() {
       document.getElementById("screenshot").src = src;
       setPathToDownload(src);
       // document.getElementById("size").innerHTML = src.length + " bytes";
+      // Force download
+      // const forceDownload = document.createElement("a");
+      // forceDownload.style.display = "none";
+      // document.body.appendChild(forceDownload);
+      // forceDownload.href = src
+      // forceDownload.setAttribute("download", "rakchart.png");
+      // forceDownload.click();
     });
   }
 
