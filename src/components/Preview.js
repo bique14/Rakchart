@@ -95,7 +95,7 @@ function Preview(props) {
         <span className="mx-6 self-center">{"V"}</span>
         <div>
           <img
-            className=""
+            className="border-2 border-dotted rounded"
             id="screenshot"
             alt="screenshot"
             style={{ width: "500px" }}
