@@ -16,25 +16,25 @@ function Preview(props) {
   }
   const dragHandlers = { onStart: onStart, onStop: onStop };
 
-  const [imgWidth, setImageWidth] = useState(0);
-  const [imgHeight, setImageHeight] = useState(0);
-  useEffect(() => {
-    const img =
-      document.getElementById("image-preview") === null
-        ? 0
-        : document.getElementById("image-preview");
+  // const [imgWidth, setImageWidth] = useState(0);
+  // const [imgHeight, setImageHeight] = useState(0);
+  // useEffect(() => {
+  //   const img =
+  //     document.getElementById("image-preview") === null
+  //       ? 0
+  //       : document.getElementById("image-preview");
 
-    const pre =
-      document.getElementById("text-preview") === null
-        ? 0
-        : document.getElementById("text-preview");
-    setImageWidth(
-      isNaN(img.width - pre.clientWidth) ? 0 : img.width - pre.clientWidth
-    );
-    setImageHeight(
-      isNaN(img.height - pre.clientHeight) ? 0 : img.height - pre.clientHeight
-    );
-  });
+  //   const pre =
+  //     document.getElementById("text-preview") === null
+  //       ? 0
+  //       : document.getElementById("text-preview");
+  //   setImageWidth(
+  //     isNaN(img.width - pre.clientWidth) ? 0 : img.width - pre.clientWidth
+  //   );
+  //   setImageHeight(
+  //     isNaN(img.height - pre.clientHeight) ? 0 : img.height - pre.clientHeight
+  //   );
+  // });
 
   return (
     <div className="mt-4">
@@ -64,8 +64,7 @@ function Preview(props) {
           )}
 
           <div
-            className="absolute cursor-move"
-            id="text-preview"
+            className="absolute"
             style={{
               left: 0,
               top: 0,
@@ -73,11 +72,12 @@ function Preview(props) {
             }}
           >
             <Draggable
-              bounds={{ top: 0, left: 0, right: imgWidth, bottom: imgHeight }}
+              // bounds="#image-preview-container"
+              // bounds={{ top: 0, left: 0, right: imgWidth, bottom: imgHeight }}
               {...dragHandlers}
             >
               <pre
-                className="text-white font-rakchart leading-8"
+                className="text-white font-rakchart leading-8 cursor-move"
                 id="text-preview"
                 style={{
                   lineHeight: `${textConfig.gap}rem`,
