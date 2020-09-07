@@ -41,7 +41,7 @@ function Preview(props) {
       <span className="block font-bold text-xl">
         Preview
         <span className="text-red-600 text-sm font-bold">
-          (**You can drag text in image**)
+          (**You can drag text on image**)
         </span>
       </span>
 
@@ -64,7 +64,7 @@ function Preview(props) {
           )}
 
           <div
-            className="absolute"
+            className="absolute cursor-move"
             id="text-preview"
             style={{
               left: 0,
