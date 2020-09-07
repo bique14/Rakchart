@@ -8,7 +8,7 @@ import html2canvas from "html2canvas";
 function App() {
   const [imageSrc, setImageSrc] = useState({});
   const [imageText, setImageText] = useState("");
-  const [textPosition, setTextPosition] = useState({ x: 0, y: 0 });
+  // const [textPosition, setTextPosition] = useState({ x: 0, y: 0 });
   const [pathToDownload, setPathToDownload] = useState("");
   const [textConfig, setTextConfig] = useState({
     color: "",
@@ -51,8 +51,8 @@ function App() {
       <Setting
         setImageSrc={setImageSrc}
         setImageText={setImageText}
-        setTextPosition={setTextPosition}
-        textPosition={textPosition}
+        // setTextPosition={setTextPosition}
+        // textPosition={textPosition}
         textConfig={textConfig}
         setTextConfig={setTextConfig}
       />
@@ -67,7 +67,7 @@ function App() {
       <Preview
         imageSrc={imageSrc}
         imageText={imageText}
-        textPosition={textPosition}
+        // textPosition={textPosition}
         textConfig={textConfig}
       />
       {document.getElementById("screenshot") === null ||

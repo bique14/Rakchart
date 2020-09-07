@@ -1,36 +1,29 @@
 import React from "react";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 function Setting(props) {
-  const {
-    setImageSrc,
-    setImageText,
-    setTextPosition,
-    textPosition,
-    setTextConfig,
-    textConfig,
-  } = props;
+  const { setImageSrc, setImageText, setTextConfig, textConfig } = props;
 
-  const [imgWidth, setImageWidth] = useState(0);
-  const [imgHeight, setImageHeight] = useState(0);
+  // const [imgWidth, setImageWidth] = useState(0);
+  // const [imgHeight, setImageHeight] = useState(0);
 
-  useEffect(() => {
-    const img =
-      document.getElementById("image-preview") === null
-        ? 0
-        : document.getElementById("image-preview");
+  // useEffect(() => {
+  //   const img =
+  //     document.getElementById("image-preview") === null
+  //       ? 0
+  //       : document.getElementById("image-preview");
 
-    const pre =
-      document.getElementById("text-preview") === null
-        ? 0
-        : document.getElementById("text-preview");
-    setImageWidth(
-      isNaN(img.width - pre.clientWidth) ? 0 : img.width - pre.clientWidth
-    );
-    setImageHeight(
-      isNaN(img.height - pre.clientHeight) ? 0 : img.height - pre.clientHeight
-    );
-  });
+  //   const pre =
+  //     document.getElementById("text-preview") === null
+  //       ? 0
+  //       : document.getElementById("text-preview");
+  //   setImageWidth(
+  //     isNaN(img.width - pre.clientWidth) ? 0 : img.width - pre.clientWidth
+  //   );
+  //   setImageHeight(
+  //     isNaN(img.height - pre.clientHeight) ? 0 : img.height - pre.clientHeight
+  //   );
+  // });
 
   return (
     <div className="flex flex-col bg-gray-300 rounded px-4 py-2">
@@ -58,12 +51,12 @@ function Setting(props) {
       ></textarea>
       <div className="flex flex-col rounded bg-gray-500 my-2 px-4 py-2">
         <span className="font-bold">Text config</span>
-        <TextPosition
+        {/* <TextPosition
           setTextPosition={setTextPosition}
           textPosition={textPosition}
           imgWidth={imgWidth}
           imgHeight={imgHeight}
-        />
+        /> */}
         <TextGap textConfig={textConfig} setTextConfig={setTextConfig} />
         <TextSize textConfig={textConfig} setTextConfig={setTextConfig} />
         <TextRotate textConfig={textConfig} setTextConfig={setTextConfig} />
@@ -73,41 +66,41 @@ function Setting(props) {
   );
 }
 
-function TextPosition(props) {
-  const { setTextPosition, textPosition, imgWidth, imgHeight } = props;
+// function TextPosition(props) {
+//   const { setTextPosition, textPosition, imgWidth, imgHeight } = props;
 
-  return (
-    <div className="flex flex-row">
-      <span className="mr-2">Position</span>
-      <div className="flex flex-row mr-2">
-        <span className="mr-1">x:</span>
-        <input
-          className="border rounded w-16"
-          type="number"
-          min={0}
-          max={imgWidth}
-          value={textPosition.x}
-          onChange={(event) => {
-            setTextPosition({ x: +event.target.value, y: textPosition.y });
-          }}
-        ></input>
-      </div>
-      <div className="flex flex-row">
-        <span className="mr-1">y:</span>
-        <input
-          className="border rounded w-16"
-          type="number"
-          min={0}
-          max={imgHeight}
-          value={textPosition.y}
-          onChange={(event) => {
-            setTextPosition({ y: +event.target.value, x: textPosition.x });
-          }}
-        ></input>
-      </div>
-    </div>
-  );
-}
+//   return (
+//     <div className="flex flex-row">
+//       <span className="mr-2">Position</span>
+//       <div className="flex flex-row mr-2">
+//         <span className="mr-1">x:</span>
+//         <input
+//           className="border rounded w-16"
+//           type="number"
+//           min={0}
+//           max={imgWidth}
+//           value={textPosition.x}
+//           onChange={(event) => {
+//             setTextPosition({ x: +event.target.value, y: textPosition.y });
+//           }}
+//         ></input>
+//       </div>
+//       <div className="flex flex-row">
+//         <span className="mr-1">y:</span>
+//         <input
+//           className="border rounded w-16"
+//           type="number"
+//           min={0}
+//           max={imgHeight}
+//           value={textPosition.y}
+//           onChange={(event) => {
+//             setTextPosition({ y: +event.target.value, x: textPosition.x });
+//           }}
+//         ></input>
+//       </div>
+//     </div>
+//   );
+// }
 
 function TextGap(props) {
   const { textConfig, setTextConfig } = props;
