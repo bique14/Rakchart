@@ -46,7 +46,7 @@ function Preview(props) {
           <img
             className=""
             id="screenshot"
-            alt="example"
+            alt="screenshot"
             style={{ width: "500px" }}
           ></img>
         </div>

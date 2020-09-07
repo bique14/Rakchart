@@ -7,8 +7,8 @@ function Setting(props) {
     setImageText,
     setTextPosition,
     textPosition,
-    textConfig,
     setTextConfig,
+    textConfig,
   } = props;
 
   const [imgWidth, setImageWidth] = useState(0);
@@ -160,7 +160,7 @@ function TextRotate(props) {
   const { textConfig, setTextConfig } = props;
   return (
     <div className="flex flex-row">
-      <span>Rotate:</span>
+      <span>Rotate (degrees):</span>
       <input
         className="border rounded w-16"
         type="number"
