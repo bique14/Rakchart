@@ -27,6 +27,7 @@ function Preview(props) {
 
           <pre
             className="absolute text-white font-rakchart leading-8"
+            id="text-preview"
             style={{
               left: x,
               top: y,

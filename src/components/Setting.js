@@ -11,7 +11,7 @@ function Setting(props) {
     setTextConfig,
   } = props;
 
-  // const [imgWidth, setImageWidth] = useState(0);
+  const [imgWidth, setImageWidth] = useState(0);
   const [imgHeight, setImageHeight] = useState(0);
 
   useEffect(() => {
@@ -19,8 +19,17 @@ function Setting(props) {
       document.getElementById("image-preview") === null
         ? 0
         : document.getElementById("image-preview");
-    // setImageWidth(img.width);
-    setImageHeight(img.height);
+
+    const pre =
+      document.getElementById("text-preview") === null
+        ? 0
+        : document.getElementById("text-preview");
+    setImageWidth(
+      isNaN(img.width - pre.clientWidth) ? 0 : img.width - pre.clientWidth
+    );
+    setImageHeight(
+      isNaN(img.height - pre.clientHeight) ? 0 : img.height - pre.clientHeight
+    );
   });
 
   return (
@@ -52,6 +61,7 @@ function Setting(props) {
         <TextPosition
           setTextPosition={setTextPosition}
           textPosition={textPosition}
+          imgWidth={imgWidth}
           imgHeight={imgHeight}
         />
         <TextGap textConfig={textConfig} setTextConfig={setTextConfig} />
@@ -64,7 +74,7 @@ function Setting(props) {
 }
 
 function TextPosition(props) {
-  const { setTextPosition, textPosition, imgHeight } = props;
+  const { setTextPosition, textPosition, imgWidth, imgHeight } = props;
 
   return (
     <div className="flex flex-row">
@@ -75,7 +85,7 @@ function TextPosition(props) {
           className="border rounded w-16"
           type="number"
           min={0}
-          max={500}
+          max={imgWidth}
           value={textPosition.x}
           onChange={(event) => {
             setTextPosition({ x: +event.target.value, y: textPosition.y });
